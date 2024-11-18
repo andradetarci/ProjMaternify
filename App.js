@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Button } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import Modal from 'react-native-modal';
-import * as Font from 'expo-font'; // Importação do expo-font
+import * as Font from 'expo-font'; 
 
 const Stack = createStackNavigator();
 
@@ -13,9 +13,9 @@ const Header = () => (
     <Text style={styles.title}>Mum Baby</Text>
   </View>
 );
-
+/////////////////////////////////////////////HOME SCREEN////////////////////////////////////////////
 const HomeScreen = ({ navigation }) => {
-  const [showAlert, setShowAlert] = useState(true); // Este estado é local a esta tela
+  const [showAlert, setShowAlert] = useState(true); 
 
   const handleCloseAlert = () => setShowAlert(false);
 
@@ -67,28 +67,28 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
-// Carregando as fontes usando o hook useEffect
+/////////////////////////////////////REMINDER SETTINGS SCREEN////////////////////////////////////////////
 const ReminderSettingsScreen = () => {
   const [reminderName, setReminderName] = useState('');
   const [reminderType, setReminderType] = useState('suplementacao');
   const [reminderFrequency, setReminderFrequency] = useState('diaria');
   const [reminderTime, setReminderTime] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
-  const [isModalVisible, setModalVisible] = useState(false); // Estado para controlar a visibilidade do modal
-  const [fontLoaded, setFontLoaded] = useState(false); // Estado para controlar o carregamento da fonte
+  const [isModalVisible, setModalVisible] = useState(false); 
+  const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
     const loadFonts = async () => {
       await Font.loadAsync({
-        'CherryBombOne': require('./assets/fonts/Cherry_Bomb_One.ttf'), // Caminho para o arquivo da fonte
+        'CherryBombOne': require('./assets/fonts/Cherry_Bomb_One.ttf'), 
       });
-      setFontLoaded(true); // Atualiza o estado para indicar que a fonte foi carregada
+      setFontLoaded(true); 
     };
     loadFonts();
   }, []); // Esse useEffect é chamado apenas uma vez ao montar o componente
 
   const handleSaveReminder = () => {
-    setModalVisible(true); // Mostrar o modal quando o lembrete é salvo
+    setModalVisible(true); 
   };
 
   const handleCloseModal = () => {
@@ -106,7 +106,7 @@ const ReminderSettingsScreen = () => {
   };
 
   if (!fontLoaded) {
-    return <Text>Loading...</Text>; // Ou um componente de carregamento enquanto a fonte não está carregada
+    return <Text>Loading...</Text>; a
   }
 
   return (
